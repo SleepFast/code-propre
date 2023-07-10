@@ -5,8 +5,8 @@ public class LivretA extends CompteBancaire {
 	private double tauxRemuneration;
 
 	public LivretA(double solde, double tauxRemuneration) {
-		this.tauxRemuneration = tauxRemuneration;
 		super(solde, 0);
+		this.tauxRemuneration = tauxRemuneration;
 	}
 
 	/** 
@@ -18,14 +18,14 @@ public class LivretA extends CompteBancaire {
 	 */
 	public void debiterMontant(double montant){
 
-		if (this.solde - montant > 0){
-			this.solde = solde - montant;
+		if (getSolde() - montant > 0){
+			setSolde(getSolde() - montant);
 		} 
 	}
 
 	public void appliquerRemuAnnuelle(){
 
-		this.solde = solde + solde*tauxRemuneration/100;
+		setSolde(getSolde() + getSolde() * tauxRemuneration/100);
 	}
 
 	/** Getter for tauxRemuneration
@@ -34,7 +34,7 @@ public class LivretA extends CompteBancaire {
 	public double getTauxRemuneration() {
 		return tauxRemuneration;
 	}
-	
+
 	/** Setter
 	 * @param tauxRemuneration the tauxRemuneration to set
 	 */
